@@ -11,8 +11,9 @@ different client patterns for each provider.
 
 import os
 
-import litellm
 from dotenv import load_dotenv
+
+import litellm
 
 load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 
@@ -37,7 +38,8 @@ print(response.choices[0].message.content)
 
 # --- Anthropic via LiteLLM (optional) ---
 # Same function, different model string. LiteLLM handles the SDK differences.
-if os.environ.get("ANTHROPIC_API_KEY") and not os.environ["ANTHROPIC_API_KEY"].endswith("..."):
+anthropic_key = os.environ.get("ANTHROPIC_API_KEY", "")
+if anthropic_key and not anthropic_key.endswith("..."):
     print("\n=== Anthropic (Claude) via LiteLLM ===\n")
     response = litellm.completion(
         model="anthropic/claude-sonnet-4-20250514",
