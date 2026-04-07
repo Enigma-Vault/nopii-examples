@@ -14,7 +14,7 @@ from openai import OpenAI
 
 load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 
-NOPII_BASE_URL = os.environ.get("NOPII_BASE_URL", "https://api.nopii.co/v1")
+NOPII_BASE_URL = os.environ.get("NOPII_BASE_URL", "https://api.nopii.co")
 
 # The same PII-laden prompt, sent to multiple providers
 PROMPT = (
@@ -39,10 +39,10 @@ print(response.choices[0].message.content)
 
 # --- Anthropic ---
 print("\n=== Anthropic (Claude) ===\n")
-# Anthropic's SDK appends /v1/ internally, so use the base domain
+# Point the Anthropic client at NoPII
 anthropic_client = anthropic.Anthropic(
     api_key=os.environ["ANTHROPIC_API_KEY"],
-    base_url=NOPII_BASE_URL.removesuffix("/v1"),
+    base_url=NOPII_BASE_URL,
 )
 
 message = anthropic_client.messages.create(

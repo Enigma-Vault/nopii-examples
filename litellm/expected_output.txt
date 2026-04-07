@@ -1,0 +1,27 @@
+$ python main.py
+
+=== OpenAI (GPT-4o) via LiteLLM ===
+
+Here is a summary of the customer record for Sarah Chen:
+- SSN: 456-78-9012
+- Email: sarah.chen@example.com
+- Phone: 312-555-0198
+- Credit card: 4111-1111-1111-1111
+
+The customer called regarding an issue with her credit card.
+
+=== Anthropic (Claude) via LiteLLM ===
+
+Here is a summary of the customer record:
+- Name: Sarah Chen
+- SSN: 456-78-9012
+- Email: sarah.chen@example.com
+- Phone: 312-555-0198
+- Credit card: 4111-1111-1111-1111
+
+Sarah Chen contacted us regarding her credit card.
+
+--- Same function, same PII protection, any provider. ---
+
+Note: LLM responses vary between runs. The key thing: real PII appears in the
+output even though the LLM only ever saw tokenized placeholders.

@@ -15,11 +15,10 @@ from dotenv import load_dotenv
 
 load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 
-# Note: Anthropic's SDK appends /v1/ internally, so use the base domain
-nopii_base = os.environ.get("NOPII_BASE_URL", "https://api.nopii.co/v1")
+nopii_base = os.environ.get("NOPII_BASE_URL", "https://api.nopii.co")
 client = anthropic.Anthropic(
     api_key=os.environ["ANTHROPIC_API_KEY"],
-    base_url=nopii_base.removesuffix("/v1"),
+    base_url=nopii_base,
 )
 
 with client.messages.stream(

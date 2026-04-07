@@ -12,7 +12,7 @@ import "dotenv/config";
 // The only change: point baseURL at NoPII
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-  baseURL: process.env.NOPII_BASE_URL || "https://api.nopii.co/v1",
+  baseURL: process.env.NOPII_BASE_URL || "https://api.nopii.co",
 });
 
 async function main() {

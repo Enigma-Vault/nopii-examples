@@ -23,7 +23,7 @@ load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 llm = ChatOpenAI(
     model="gpt-4o",
     api_key=os.environ["OPENAI_API_KEY"],
-    base_url=os.environ.get("NOPII_BASE_URL", "https://api.nopii.co/v1"),
+    base_url=os.environ.get("NOPII_BASE_URL", "https://api.nopii.co"),
 )
 
 

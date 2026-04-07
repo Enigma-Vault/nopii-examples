@@ -16,7 +16,7 @@ load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 # The only change: point base_url at NoPII
 client = OpenAI(
     api_key=os.environ["OPENAI_API_KEY"],
-    base_url=os.environ.get("NOPII_BASE_URL", "https://api.nopii.co/v1"),
+    base_url=os.environ.get("NOPII_BASE_URL", "https://api.nopii.co"),
 )
 
 # Send a message containing PII - NoPII intercepts and tokenizes it

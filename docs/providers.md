@@ -6,24 +6,24 @@ Any LLM provider that exposes an OpenAI-compatible API works with NoPII via `bas
 
 | Provider | Integration | Endpoint |
 |----------|-------------|----------|
-| OpenAI | `base_url="https://api.nopii.co/v1"` | OpenAI-compatible |
+| OpenAI | `base_url="https://api.nopii.co"` | OpenAI-compatible |
 | Anthropic | `base_url="https://api.nopii.co"` | Native Anthropic Messages API |
-| DeepSeek | `base_url="https://api.nopii.co/v1"` | OpenAI-compatible |
-| Google Gemini | `base_url="https://api.nopii.co/v1"` | OpenAI-compatible |
-| xAI (Grok) | `base_url="https://api.nopii.co/v1"` | OpenAI-compatible |
-| Mistral | `base_url="https://api.nopii.co/v1"` | OpenAI-compatible |
-| Groq | `base_url="https://api.nopii.co/v1"` | OpenAI-compatible |
-| Together | `base_url="https://api.nopii.co/v1"` | OpenAI-compatible |
-| Fireworks | `base_url="https://api.nopii.co/v1"` | OpenAI-compatible |
+| DeepSeek | `base_url="https://api.nopii.co"` | OpenAI-compatible |
+| Google Gemini | `base_url="https://api.nopii.co"` | OpenAI-compatible |
+| xAI (Grok) | `base_url="https://api.nopii.co"` | OpenAI-compatible |
+| Mistral | `base_url="https://api.nopii.co"` | OpenAI-compatible |
+| Groq | `base_url="https://api.nopii.co"` | OpenAI-compatible |
+| Together | `base_url="https://api.nopii.co"` | OpenAI-compatible |
+| Fireworks | `base_url="https://api.nopii.co"` | OpenAI-compatible |
 
 ## Anthropic note
 
-Anthropic's SDK appends `/v1/` internally, so use the base domain without the `/v1` suffix. See the [anthropic-chat](../anthropic-chat) example.
+Anthropic's SDK works with the same base URL. See the [anthropic-chat](../anthropic-chat) example.
 
 ```python
-nopii_base = os.environ.get("NOPII_BASE_URL", "https://api.nopii.co/v1")
+nopii_base = os.environ.get("NOPII_BASE_URL", "https://api.nopii.co")
 client = anthropic.Anthropic(
     api_key=os.environ["ANTHROPIC_API_KEY"],
-    base_url=nopii_base.removesuffix("/v1"),
+    base_url=nopii_base,
 )
 ```

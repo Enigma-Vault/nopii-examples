@@ -13,7 +13,7 @@ You register your upstream LLM API keys in the NoPII admin console. You retain f
 client = OpenAI(api_key="sk-...")
 
 # After: PII is intercepted and tokenized
-client = OpenAI(api_key="sk-...", base_url="https://api.nopii.co/v1")
+client = OpenAI(api_key="sk-...", base_url="https://api.nopii.co")
 ```
 
 For most SDK-based integrations, that's the only code change required.
@@ -56,12 +56,12 @@ cp .env.example .env
 ```
 
 ```env
-NOPII_BASE_URL=https://api.nopii.co/v1
+NOPII_BASE_URL=https://api.nopii.co
 OPENAI_API_KEY=sk-...
 ANTHROPIC_API_KEY=sk-ant-...
 ```
 
-> **Note:** Anthropic's SDK appends `/v1/` internally. The Anthropic examples handle this automatically. See [Provider Compatibility](./docs/providers.md) for details.
+> **Note:** See [Provider Compatibility](./docs/providers.md) for provider-specific details.
 
 ### 3. Run an example
 
@@ -99,6 +99,7 @@ npm start
 | [deepseek](./deepseek) | DeepSeek | DeepSeek via OpenAI-compatible endpoint |
 | [gemini](./gemini) | Google Gemini | Gemini via OpenAI-compatible endpoint |
 | [openai-chat-node](./openai-chat-node) | OpenAI | Node.js/TypeScript chat completion with PII protection |
+| [litellm](./litellm) | Multiple | LiteLLM unified interface — one function, any provider |
 | [multi-provider](./multi-provider) | Multiple | Same PII protection across OpenAI, Anthropic, and DeepSeek |
 
 ---
@@ -165,7 +166,7 @@ This is the critical difference between NoPII and naive redaction. Redaction des
 | Streaming | **Supported** | Real-time detokenization of streamed chunks |
 | Multi-turn conversations | **Supported** | Deterministic tokens maintain entity consistency across turns |
 | LangChain / LlamaIndex | **Supported** | Drop-in via `base_url`, generally works without application rewrites |
-| LangChain + ChatAnthropic | **Supported** | Via `anthropic_api_url` — same `.removesuffix("/v1")` pattern |
+| LangChain + ChatAnthropic | **Supported** | Via `anthropic_api_url` |
 | LangGraph | **Supported** | PII protected across all graph nodes and edges |
 | Tool / function calling | **Supported** | PII in tool arguments and responses is tokenized/detokenized |
 | JSON mode / structured output | **Supported** | Tokenization preserves JSON structure |

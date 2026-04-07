@@ -17,7 +17,7 @@ load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 llm = OpenAI(
     model="gpt-4o",
     api_key=os.environ["OPENAI_API_KEY"],
-    api_base=os.environ.get("NOPII_BASE_URL", "https://api.nopii.co/v1"),
+    api_base=os.environ.get("NOPII_BASE_URL", "https://api.nopii.co"),
 )
 
 # Chat with PII - automatically protected

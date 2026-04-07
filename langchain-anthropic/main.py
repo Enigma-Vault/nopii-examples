@@ -2,9 +2,8 @@
 LangChain + Anthropic with NoPII PII Protection
 
 ChatAnthropic accepts an anthropic_api_url parameter, so the same
-pattern as the raw Anthropic SDK applies: point at NoPII, strip /v1
-(Anthropic SDK appends it internally). All chains, agents, and tools
-work exactly as before.
+pattern as the raw Anthropic SDK applies: point at NoPII. All chains,
+agents, and tools work exactly as before.
 """
 
 import os
@@ -16,13 +15,12 @@ from langchain_core.prompts import ChatPromptTemplate
 
 load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 
-# Same NoPII base URL, strip /v1 — Anthropic SDK appends it internally
-nopii_base = os.environ.get("NOPII_BASE_URL", "https://api.nopii.co/v1")
+nopii_base = os.environ.get("NOPII_BASE_URL", "https://api.nopii.co")
 
 llm = ChatAnthropic(
     model="claude-sonnet-4-20250514",
     api_key=os.environ["ANTHROPIC_API_KEY"],
-    anthropic_api_url=nopii_base.removesuffix("/v1"),
+    anthropic_api_url=nopii_base,
 )
 
 # Simple invocation — PII is intercepted and tokenized automatically

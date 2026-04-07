@@ -15,7 +15,7 @@ load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 
 client = OpenAI(
     api_key=os.environ["OPENAI_API_KEY"],
-    base_url=os.environ.get("NOPII_BASE_URL", "https://api.nopii.co/v1"),
+    base_url=os.environ.get("NOPII_BASE_URL", "https://api.nopii.co"),
 )
 
 conversation = []
