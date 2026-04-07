@@ -100,6 +100,7 @@ npm start
 | [gemini](./gemini) | Google Gemini | Gemini via OpenAI-compatible endpoint |
 | [openai-chat-node](./openai-chat-node) | OpenAI | Node.js/TypeScript chat completion with PII protection |
 | [litellm](./litellm) | Multiple | LiteLLM unified interface — one function, any provider |
+| [langfuse](./langfuse) | OpenAI | Distributed tracing with Langfuse via traceparent header |
 | [multi-provider](./multi-provider) | Multiple | Same PII protection across OpenAI, Anthropic, and DeepSeek |
 
 ---
