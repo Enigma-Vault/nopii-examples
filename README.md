@@ -2,11 +2,7 @@
 
 [![CI](https://github.com/Enigma-Vault/NoPII/actions/workflows/ci.yml/badge.svg)](https://github.com/Enigma-Vault/NoPII/actions/workflows/ci.yml)
 
-**PII-tokenizing proxy for LLM APIs. One line of code. Zero middleware.**
-
-NoPII sits between your application and your LLM provider. It detects PII in outbound requests, replaces it with deterministic tokens, and restores the original values in responses. Your app works with real data. The LLM never sees it.
-
-You register your upstream LLM API keys in the NoPII admin console. You retain full ownership and control. NoPII uses them to forward sanitized requests on your behalf.
+NoPII is a PII-tokenizing reverse proxy for LLM APIs. It sits between your application and your LLM provider, detects PII in outbound requests, replaces it with deterministic tokens, and restores the original values in responses. Your app works with real data. The LLM never sees it.
 
 ```python
 # Before: PII goes straight to OpenAI
@@ -16,13 +12,13 @@ client = OpenAI(api_key="sk-...")
 client = OpenAI(api_key="sk-...", base_url="https://api.nopii.co")
 ```
 
-For most SDK-based integrations, that's the only code change required.
+One line of code. Zero middleware. Register your LLM API keys in the [admin console](https://app.nopii.co) and NoPII handles the rest.
 
-> **Built on Enigma Vault.** PCI DSS Level 1 certified, SOC 2 Type II audited, AWS Partner. [Security details →](./docs/security.md)
+> **Built on [Enigma Vault](https://www.enigmavault.io).** PCI DSS Level 1 certified, SOC 2 Type II audited, AWS Partner. [Security details →](./docs/security.md) · [Whitepaper →](./docs/Deterministic%20PII%20Tokenization%20for%20LLM%20API%20Traffic.pdf)
 
 ---
 
-## Architecture
+## How it works
 
 ```
                         ┌──────────────────────────────┐

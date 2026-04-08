@@ -1,0 +1,20 @@
+$ python main.py
+
+**Support Ticket Summary:**
+
+- Name: Sarah Chen
+- Email: s.chen@finco.com
+- SSN: 123-45-6789
+- Phone: 415-555-0182
+- Card: 4111-1111-1111-1111
+- Issue: Billing discrepancy
+
+--- With a chain ---
+
+Account details for Marcus Webb:
+- Email: m.webb@enterprise.io
+- Employee ID: EMP-998821
+- Phone: 312-555-0144
+
+Note: LLM responses vary between runs. The key thing: real PII appears in the
+output even though the LLM only ever saw tokenized placeholders.

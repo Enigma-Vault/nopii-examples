@@ -1,0 +1,13 @@
+$ python main.py
+
+Category: billing
+
+Summary:
+Customer: Emily Rodriguez (e.rodriguez@acmecorp.com)
+- SSN: 567-89-0123
+- Phone: 628-555-0199
+- Account: ACC-44821
+- Dispute: $2,400 charge on card 4242-4242-4242-4242
+
+Note: LLM responses vary between runs. The key thing: real PII appears in the
+output even though the LLM only ever saw tokenized placeholders.
